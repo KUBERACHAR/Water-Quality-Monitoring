@@ -1,8 +1,8 @@
-# AI-Driven Water Quality Monitoring Dashboard
+# Water Quality Monitoring Dashboard
 
 A Streamlit software prototype that simulates water-quality sensor readings, evaluates them with threshold rules and a weighted Water Quality Index (WQI), and displays the results in a live dashboard.
 
-> **Prototype note:** This application generates random sample readings in software. It does not currently connect to physical sensors, an external API, or a user-provided file. Its "AI" analysis is a transparent formula and rule-based evaluation, not a trained machine-learning model.
+> **Prototype note:** This application generates random sample readings in software. It does not currently connect to physical sensors, an external API, or a user-provided file. Water-quality results are produced by transparent formulas and threshold rules, not by a trained machine-learning model.
 
 ## Features
 
@@ -26,7 +26,7 @@ Choose an input mode from the sidebar:
 | Turbidity | Random value from 0.5 to 8.0 NTU, rounded to 2 decimal places |
 | TDS | Random value from 150 to 550 ppm, rounded to 1 decimal place |
 
-Each generated payload is passed to `analyze_water_data()` in `utils/ai_engine.py`. The device ID and timestamp are included in the simulated payload but are not currently shown in the dashboard.
+Each generated payload is passed to the water-quality analysis function. The device ID and timestamp are included in the simulated payload but are not currently shown in the dashboard.
 
 There is no CSV upload or physical sensor/API integration in the current version.
 
@@ -94,6 +94,6 @@ Open the local URL printed by Streamlit in your browser. Use the sidebar to choo
 ```text
 app.py                 Streamlit interface, display, and refresh loop
 utils/simulation.py    Random virtual sensor payload generation
-utils/ai_engine.py     Threshold checks, WQI calculation, and status selection
+utils/                 Sensor simulation and water-quality analysis
 requirements.txt       Python package requirements
 ```

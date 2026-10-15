@@ -5,12 +5,12 @@ from utils.ai_engine import analyze_water_data
 
 # 1. Page Configuration
 st.set_page_config(
-    page_title="AI Water Quality Monitoring Dashboard",
+    page_title="Water Quality Monitoring Dashboard",
     page_icon="💧",
     layout="wide"
 )
 
-st.title("💧 AI-Driven Water Quality Monitoring Dashboard")
+st.title("💧 Water Quality Monitoring Dashboard")
 st.markdown("A software prototype for simulated or manually entered water measurements, analysis, and quality evaluation.")
 
 # 2. Sidebar Controls for Input Settings
@@ -38,15 +38,15 @@ def display_analysis(ph, turbidity, tds, chart_title="📈 Real-Time Parameter T
     col1.metric("pH Level", f"{ph}", delta="Target: 6.5 - 8.5", delta_color="normal")
     col2.metric("Turbidity", f"{turbidity} NTU", delta="Max: 5.0 NTU", delta_color="inverse")
     col3.metric("TDS", f"{tds} ppm", delta="Max: 500 ppm", delta_color="inverse")
-    col4.metric("AI Health WQI", f"{wqi_score} / 100", delta="Score")
+    col4.metric("Water Quality Index", f"{wqi_score} / 100", delta="Score")
 
     # Active Alerts Section
-    st.subheader("🤖 AI Insights & Active Alerts")
+    st.subheader("Water Quality Insights & Active Alerts")
     if warnings:
         for warning in warnings:
             st.error(f"⚠️ {warning}")
     else:
-        st.info("✨ All parameters are running within optimal AI-predicted thresholds. No anomalies detected.")
+        st.info("✨ All parameters are within the configured thresholds. No alerts detected.")
 
     # Historical Trend Chart Mockup
     st.subheader(chart_title)
